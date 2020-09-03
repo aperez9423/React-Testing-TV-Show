@@ -8,7 +8,7 @@ jest.mock('./api/fetchShow');
 test('App fetches episodes data from the api and render it', async () => {
     mockFetchShow.mockResolvedValueOnce(episodes);
     const { findByText, getAllByTestId } = render(<App/>);
-    const button = getByTestId(button);
+    const button = getByTestId(/button/i);
 
     fireEvent.click(button);
     await findByText (/fetching data/i);
